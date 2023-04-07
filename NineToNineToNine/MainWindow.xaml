@@ -1,0 +1,44 @@
+﻿<Window x:Class="NineToNineToNine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NineToNineToNine"
+        mc:Ignorable="d"
+        Title="9 Hoch 9 Hoch 9" Height="460" Width="803">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="167.668"/>
+            <RowDefinition Height="44.332"/>
+            <RowDefinition Height="221*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="tf_W1" HorizontalAlignment="Left" Margin="42,109,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBox x:Name="tf_W2" HorizontalAlignment="Left" Margin="174,70,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="120" TextChanged="tf_W2_TextChanged" Height="19"/>
+        <TextBox x:Name="tf_W3" HorizontalAlignment="Left" Margin="317,38,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="120" TextChanged="tf_W2_TextChanged" Height="19"/>
+
+        <Label Content="Quotient" Height="27" Width="61" HorizontalAlignment="Left" Margin="370,70,0,71" />
+        <TextBox x:Name="tf_oberePotenz" Width="135" Height="19" Margin="436,74,0,75" HorizontalAlignment="Left"/>
+
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+
+            <Label Content="Durchlauf" Height="27"  />
+            <TextBox x:Name="tf_interation" TextWrapping="Wrap" Width="98" Height="20"/>
+
+            <Label Content="Startzeit" Width="57" Height="25" />
+            <TextBox x:Name="tf_Startzeit"  Width="114" Height="20" />
+
+            <Label Content="Endzeit"  Height="25" Width="56" />
+            <TextBox x:Name="tf_Endzeit" Width="128" Height="20"/>
+
+            <Label Content="Stellen"  Height="27" Width="52"/>
+            <TextBox x:Name="tf_Stellen" Height="20" Width="90" />
+
+        </StackPanel>
+        <TextBox Grid.Row="2" x:Name="tf_Ergebnis" Margin="5,5,5,5" TextWrapping="Wrap" Text=""  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"/>
+        <CheckBox x:Name="chb_viewResult" Content="Show Result" Margin="0,25,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" IsChecked="True" Unchecked="chb_viewResult_Unchecked"/>
+        <Button x:Name="sf_start" Content="_calc" Height="55" Margin="0,103,14,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Right" Width="172" />
+        <Button x:Name="sf_ShowResultFolder" Content="Result Folder" Height="32" Margin="0,61,14,0" VerticalAlignment="Top" Click="sf_ShowResultFolder_Click" HorizontalAlignment="Right" Width="172"/>
+
+    </Grid>
+</Window>
