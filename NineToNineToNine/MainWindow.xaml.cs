@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
 
@@ -91,10 +92,10 @@ namespace NineToNineToNine
                 {
                     this.Dispatcher.Invoke(() =>
                     {
-                        tfInteration.Text = n.ToString();
+                        tfInteration.Text = n.ToString("0,000");
                         if (chb_viewResult.IsChecked ?? false)
-                            tfSumme.Text = sum.ToString();
-                        tf_Stellen.Text = sum.ToString().Length.ToString();
+                            tfSumme.Text = sum.ToString("0,000");
+                        tf_Stellen.Text = sum.ToString().Length.ToString("0,000");
                     });
 
 
@@ -116,7 +117,7 @@ namespace NineToNineToNine
             });
         }
 
-        private static string CreateAndGetFolder()
+        private string CreateAndGetFolder()
         {
             var folder = Path
                 .Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "NineToNineToNine");
@@ -126,7 +127,7 @@ namespace NineToNineToNine
             return folder;
         }
 
-        private static async Task WriteCurrentStatus(string filename, int n, BigInteger quotientTop, BigInteger sum)
+        private async Task WriteCurrentStatus(string filename, int n, BigInteger quotientTop, BigInteger sum)
         {
             await File.WriteAllTextAsync(filename, n + "/" + quotientTop + "####" + sum.ToString());
         }
@@ -134,7 +135,7 @@ namespace NineToNineToNine
         private void tf_W2_TextChanged(object sender, TextChangedEventArgs e)
         {
             if ((tf_W3 != null) && (tf_oberePotenz != null))
-                tf_oberePotenz.Text = Math.Pow(int.Parse(tf_W2.Text), int.Parse(tf_W3.Text)).ToString();
+                tf_oberePotenz.Text = Math.Pow(int.Parse(tf_W2.Text), int.Parse(tf_W3.Text)).ToString("0,000");
         }
 
         private void chb_viewResult_Unchecked(object sender, RoutedEventArgs e)
