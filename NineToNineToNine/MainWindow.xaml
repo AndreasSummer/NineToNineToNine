@@ -20,13 +20,13 @@
         <TextBox x:Name="tf_oberePotenz" Width="135" Height="19" Margin="436,74,0,75" HorizontalAlignment="Left"/>
 
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch" >
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
 
             <Label Content="Iteration" HorizontalAlignment="Center" VerticalAlignment="Center"   />
-            <TextBox x:Name="tf_interation" Margin="10,0,0,0" TextWrapping="Wrap" MinWidth="98" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBox x:Name="tf_interation" Margin="10,0,0,0" TextWrapping="Wrap" MinWidth="50" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
             <Label Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" >Start Time</Label>
-            <TextBox x:Name="tf_startTime"  Margin="10,0,0,0" MinWidth="98" TextAlignment="Center" HorizontalContentAlignment="Center" Text="Test" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <TextBox x:Name="tf_startTime"  Margin="10,0,0,0" MinWidth="98" TextAlignment="Center" HorizontalContentAlignment="Center" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
             </TextBox>
 
@@ -37,7 +37,7 @@
             <TextBox x:Name="td_Duration"  Margin="10,0,0,0" MinWidth="98" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
             <Label Content="Digits"   Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="tf_Digits" Margin="10,0,0,0" MinWidth="98" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="tf_Digits" Margin="10,0,0,0" MinWidth="50"  TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
         <TextBox Grid.Row="2" x:Name="tf_Result" Margin="5,5,5,5" TextWrapping="Wrap" Text=""  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"/>
         <CheckBox x:Name="chb_viewResult" Content="Show Result" Margin="0,25,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" IsChecked="True" Unchecked="chb_viewResult_Unchecked"/>

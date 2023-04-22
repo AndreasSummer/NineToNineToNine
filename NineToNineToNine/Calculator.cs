@@ -11,12 +11,10 @@ namespace NineToNineToNine;
 
 public class Calculator
 {
-
     public event EventHandler<CalcEvent> Progress = (sender, args) => { };
     public event EventHandler<CalcEvent> End = (sender, args) => { };
 
-    internal async Task StartCalcualte(int w1, int w2, int w3, int startIteration, BigInteger sum, string filename,
-    CancellationToken cancelToken)
+    internal async Task StartCalcualte(int w1, int w2, int w3, int startIteration, BigInteger sum, string filename, CancellationToken cancelToken)
     {
         DateTime start = DateTime.Now;
         BigInteger quotientTop = BigInteger.Pow(w2, w3);
