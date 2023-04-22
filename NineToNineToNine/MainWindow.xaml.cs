@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.DirectoryServices.ActiveDirectory;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -9,10 +8,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Media.Animation;
-using System.Windows.Threading;
-
 
 namespace NineToNineToNine
 {
@@ -51,7 +46,6 @@ namespace NineToNineToNine
                 tf_interation.Text = "starting"; // UI Thread
                 try
                 {
-
                     var folder = CreateAndGetFolder();
                     string filename = Path.Combine(folder, $"{w1} pow {w2} pow {w3}.txt");
 
@@ -79,45 +73,6 @@ namespace NineToNineToNine
             }
         }
 
-        internal async Task HeavyMethodAsync(int w1, int w2, int w3, int n, BigInteger sum, string filename, CancellationToken cancelToken)
-        {
-            DateTime start = DateTime.Now;
-            BigInteger quotientTop = BigInteger.Pow(w2, w3);
-
-            for (n = 1; n <= quotientTop - 1; n++)
-            {
-                sum = BigInteger.Multiply(sum, w1);
-
-                if (n % 1000 == 0) //nur jedes 1000 mal aktualisieren
-                {
-                    this.Dispatcher.Invoke(() =>
-                    {
-                        this.tf_interation.Text = n.ToString("0,000");
-                        if (chb_viewResult.IsChecked ?? false)
-                            this.tf_Result.Text = sum.ToString("0,000");
-                        tf_Digits.Text = sum.ToString().Length.ToString("0,000");
-                        td_Duration.Text = (DateTime.Now.Subtract(start)).Minutes.ToString("#,##0");
-                    });
-
-
-                    await WriteCurrentStatus(filename, n, quotientTop, sum);
-                }
-
-                if (cancelToken.IsCancellationRequested)
-                {
-                    await WriteCurrentStatus(filename, n, quotientTop, sum);
-                    cancelToken.ThrowIfCancellationRequested();
-                }
-            }
-
-            await WriteCurrentStatus(filename, n, quotientTop, sum);
-
-            this.Dispatcher.Invoke(() =>
-            {
-                tf_interation.Text = quotientTop.ToString();
-            });
-        }
-
         private string CreateAndGetFolder()
         {
             var folder = Path
@@ -128,10 +83,7 @@ namespace NineToNineToNine
             return folder;
         }
 
-        private async Task WriteCurrentStatus(string filename, int n, BigInteger quotientTop, BigInteger sum)
-        {
-            await File.WriteAllTextAsync(filename, n + "/" + quotientTop + "####" + sum.ToString());
-        }
+
 
         private void tf_W2_TextChanged(object sender, TextChangedEventArgs e)
         {
