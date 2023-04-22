@@ -9,10 +9,10 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="167.668"/>
-            <RowDefinition Height="44.332"/>
-            <RowDefinition Height="221*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="tf_W1" HorizontalAlignment="Left" Margin="42,109,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBox x:Name="tf_W1" HorizontalAlignment="Left" Margin="42,109,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="120" TextChanged="tf_W1_TextChanged" Height="19"/>
         <TextBox x:Name="tf_W2" HorizontalAlignment="Left" Margin="174,70,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="120" TextChanged="tf_W2_TextChanged" Height="19"/>
         <TextBox x:Name="tf_W3" HorizontalAlignment="Left" Margin="317,38,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="120" TextChanged="tf_W2_TextChanged" Height="19"/>
 
@@ -20,27 +20,44 @@
         <TextBox x:Name="tf_oberePotenz" Width="135" Height="19" Margin="436,74,0,75" HorizontalAlignment="Left"/>
 
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch" >
 
-            <Label Content="Iteration" Height="27"  />
-            <TextBox x:Name="tf_interation" TextWrapping="Wrap" Width="98" Height="20"/>
+            <Label Content="Iteration" HorizontalAlignment="Center" VerticalAlignment="Center"   />
+            <TextBox x:Name="tf_interation" Margin="10,0,0,0" TextWrapping="Wrap" MinWidth="98" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-            <Label Content="Start" Width="57" Height="25" />
-            <TextBox x:Name="tf_startTime"  Width="114" Height="20" />
+            <Label Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" >Start Time</Label>
+            <TextBox x:Name="tf_startTime"  Margin="10,0,0,0" MinWidth="98" TextAlignment="Center" HorizontalContentAlignment="Center" Text="Test" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
-            <Label Content="Endtime"  Height="25" Width="56" />
-            <TextBox x:Name="tf_EndTime" Width="128" Height="20"/>
+            </TextBox>
 
-            <Label Content="Duration"  Height="25" Width="56" />
-            <TextBox x:Name="td_Duration" Width="128" Height="20"/>
+            <Label Content="Endtime"  Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+            <TextBox x:Name="tf_EndTime" Margin="10,0,0,0" MinWidth="98" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-            <Label Content="Digits"  Height="27" Width="52"/>
-            <TextBox x:Name="tf_Digits" Height="20" Width="90" />
+            <Label Content="Duration"  Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"   />
+            <TextBox x:Name="td_Duration"  Margin="10,0,0,0" MinWidth="98" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
+            <Label Content="Digits"   Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="tf_Digits" Margin="10,0,0,0" MinWidth="98" TextAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
         <TextBox Grid.Row="2" x:Name="tf_Result" Margin="5,5,5,5" TextWrapping="Wrap" Text=""  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"/>
         <CheckBox x:Name="chb_viewResult" Content="Show Result" Margin="0,25,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" IsChecked="True" Unchecked="chb_viewResult_Unchecked"/>
-        <Button x:Name="sf_start" Content="_calc" Height="55" Margin="0,103,14,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Right" Width="172" />
+        <Button x:Name="sf_start"  Height="55" Margin="0,103,14,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Right" Width="172">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="tbStart" Text="&#xE73E;" FontFamily="Segoe MDL2 Assets" FontSize="16" />
+                <TextBlock x:Name="tbStop" Text="&#xE738;" FontFamily="Segoe MDL2 Assets" FontSize="16" Visibility="Collapsed" />
+                <TextBlock x:Name="tbStartStop" Text="Start" Margin="5,0,0,0" />
+            </StackPanel>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="LightGreen" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=tbStart, Path=Visibility}" Value="Collapsed">
+                            <Setter Property="Background" Value="LightCoral" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
         <Button x:Name="sf_ShowResultFolder" Content="Result Folder" Height="32" Margin="0,61,14,0" VerticalAlignment="Top" Click="sf_ShowResultFolder_Click" HorizontalAlignment="Right" Width="172"/>
 
     </Grid>
