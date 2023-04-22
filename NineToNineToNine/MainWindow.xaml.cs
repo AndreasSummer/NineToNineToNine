@@ -98,7 +98,7 @@ namespace NineToNineToNine
                         if (chb_viewResult.IsChecked ?? false)
                             tfSumme.Text = sum.ToString("0,000");
                         tf_Stellen.Text = sum.ToString().Length.ToString("0,000");
-                        tf_Dauer.Text = (DateTime.Now.Subtract(start)).Minutes.ToString("0,000");
+                        tf_Dauer.Text = (DateTime.Now.Subtract(start)).Minutes.ToString("#,##0");
                     });
 
 
