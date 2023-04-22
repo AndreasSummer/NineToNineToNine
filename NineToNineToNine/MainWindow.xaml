@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NineToNineToNine"
         mc:Ignorable="d"
-        Title="9 Hoch 9 Hoch 9" Height="460" Width="803">
+        Title="9 Hoch 9 Hoch 9" Height="460" Width="933">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="167.668"/>
@@ -30,6 +30,9 @@
 
             <Label Content="Endzeit"  Height="25" Width="56" />
             <TextBox x:Name="tf_Endzeit" Width="128" Height="20"/>
+
+            <Label Content="Dauer"  Height="25" Width="56" />
+            <TextBox x:Name="tf_Dauer" Width="128" Height="20"/>
 
             <Label Content="Stellen"  Height="27" Width="52"/>
             <TextBox x:Name="tf_Stellen" Height="20" Width="90" />

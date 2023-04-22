@@ -76,6 +76,8 @@ namespace NineToNineToNine
 
         internal async Task HeavyMethodAsync(int w1, int w2, int w3, TextBox tfInteration, TextBox tfSumme, TextBox tf_Stellen, CancellationToken cancelToken)
         {
+            DateTime start = DateTime.Now;
+
             BigInteger sum = w1;
             BigInteger quotientTop = BigInteger.Pow(w2, w3);
 
@@ -96,6 +98,7 @@ namespace NineToNineToNine
                         if (chb_viewResult.IsChecked ?? false)
                             tfSumme.Text = sum.ToString("0,000");
                         tf_Stellen.Text = sum.ToString().Length.ToString("0,000");
+                        tf_Dauer.Text = (DateTime.Now.Subtract(start)).Minutes.ToString("0,000");
                     });
 
 
