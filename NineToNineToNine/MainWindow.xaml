@@ -22,23 +22,23 @@
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
 
-            <Label Content="Durchlauf" Height="27"  />
+            <Label Content="Iteration" Height="27"  />
             <TextBox x:Name="tf_interation" TextWrapping="Wrap" Width="98" Height="20"/>
 
-            <Label Content="Startzeit" Width="57" Height="25" />
-            <TextBox x:Name="tf_Startzeit"  Width="114" Height="20" />
+            <Label Content="Start" Width="57" Height="25" />
+            <TextBox x:Name="tf_startTime"  Width="114" Height="20" />
 
-            <Label Content="Endzeit"  Height="25" Width="56" />
-            <TextBox x:Name="tf_Endzeit" Width="128" Height="20"/>
+            <Label Content="Endtime"  Height="25" Width="56" />
+            <TextBox x:Name="tf_EndTime" Width="128" Height="20"/>
 
-            <Label Content="Dauer"  Height="25" Width="56" />
-            <TextBox x:Name="tf_Dauer" Width="128" Height="20"/>
+            <Label Content="Duration"  Height="25" Width="56" />
+            <TextBox x:Name="td_Duration" Width="128" Height="20"/>
 
-            <Label Content="Stellen"  Height="27" Width="52"/>
-            <TextBox x:Name="tf_Stellen" Height="20" Width="90" />
+            <Label Content="Digits"  Height="27" Width="52"/>
+            <TextBox x:Name="tf_Digits" Height="20" Width="90" />
 
         </StackPanel>
-        <TextBox Grid.Row="2" x:Name="tf_Ergebnis" Margin="5,5,5,5" TextWrapping="Wrap" Text=""  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"/>
+        <TextBox Grid.Row="2" x:Name="tf_Result" Margin="5,5,5,5" TextWrapping="Wrap" Text=""  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"/>
         <CheckBox x:Name="chb_viewResult" Content="Show Result" Margin="0,25,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" IsChecked="True" Unchecked="chb_viewResult_Unchecked"/>
         <Button x:Name="sf_start" Content="_calc" Height="55" Margin="0,103,14,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Right" Width="172" />
         <Button x:Name="sf_ShowResultFolder" Content="Result Folder" Height="32" Margin="0,61,14,0" VerticalAlignment="Top" Click="sf_ShowResultFolder_Click" HorizontalAlignment="Right" Width="172"/>

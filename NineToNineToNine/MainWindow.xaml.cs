@@ -41,9 +41,9 @@ namespace NineToNineToNine
                 _cancellationTokenSource = new CancellationTokenSource();
                 var token = _cancellationTokenSource.Token;
 
-                tf_Ergebnis.Text = "";
-                tf_Startzeit.Text = DateTime.Now.ToString();
-                tf_Endzeit.Text = "";
+                tf_Result.Text = "";
+                tf_startTime.Text = DateTime.Now.ToString();
+                tf_EndTime.Text = "";
                 int w1 = int.Parse(tf_W1.Text);
                 int w2 = int.Parse(tf_W2.Text);
                 int w3 = int.Parse(tf_W3.Text);
@@ -75,7 +75,7 @@ namespace NineToNineToNine
                     _cancellationTokenSource = null;
                     sf_start.Content = "_Starten";
                 }
-                tf_Endzeit.Text = DateTime.Now.ToString();
+                tf_EndTime.Text = DateTime.Now.ToString();
             }
         }
 
@@ -94,9 +94,9 @@ namespace NineToNineToNine
                     {
                         this.tf_interation.Text = n.ToString("0,000");
                         if (chb_viewResult.IsChecked ?? false)
-                            this.tf_Ergebnis.Text = sum.ToString("0,000");
-                        tf_Stellen.Text = sum.ToString().Length.ToString("0,000");
-                        tf_Dauer.Text = (DateTime.Now.Subtract(start)).Minutes.ToString("#,##0");
+                            this.tf_Result.Text = sum.ToString("0,000");
+                        tf_Digits.Text = sum.ToString().Length.ToString("0,000");
+                        td_Duration.Text = (DateTime.Now.Subtract(start)).Minutes.ToString("#,##0");
                     });
 
 
@@ -142,7 +142,7 @@ namespace NineToNineToNine
         private void chb_viewResult_Unchecked(object sender, RoutedEventArgs e)
         {
             if (!chb_viewResult.IsChecked ?? false)
-                tf_Ergebnis.Text = "";
+                tf_Result.Text = "";
         }
 
         private void sf_ShowResultFolder_Click(object sender, RoutedEventArgs e)
