@@ -51,15 +51,20 @@ namespace NineToNineToNine
                 tf_interation.Text = "starting"; // UI Thread
                 try
                 {
+
+                    var folder = CreateAndGetFolder();
+                    string filename = Path.Combine(folder, $"{w1} pow {w2} pow {w3}.txt");
+
+                    int n = 1;
+                    BigInteger sum = w1;
+
                     await Task.Run(() =>
                         HeavyMethodAsync(
                             w1,
                             w2,
-                            w3,
-                            tf_interation,
-                            tf_Ergebnis,
-                            tf_Stellen, token), token);
+                            w3, n, sum, filename, token), token);
                 }
+
                 catch (OperationCanceledException ex)
                 {
 
@@ -74,18 +79,11 @@ namespace NineToNineToNine
             }
         }
 
-        internal async Task HeavyMethodAsync(int w1, int w2, int w3, TextBox tfInteration, TextBox tfSumme, TextBox tf_Stellen, CancellationToken cancelToken)
+        internal async Task HeavyMethodAsync(int w1, int w2, int w3, int n, BigInteger sum, string filename, CancellationToken cancelToken)
         {
             DateTime start = DateTime.Now;
-
-            BigInteger sum = w1;
             BigInteger quotientTop = BigInteger.Pow(w2, w3);
 
-            var folder = CreateAndGetFolder();
-
-            var filename = Path.Combine(folder, $"{w1} pow {w2} pow {w3}.txt");
-
-            int n;
             for (n = 1; n <= quotientTop - 1; n++)
             {
                 sum = BigInteger.Multiply(sum, w1);
@@ -94,9 +92,9 @@ namespace NineToNineToNine
                 {
                     this.Dispatcher.Invoke(() =>
                     {
-                        tfInteration.Text = n.ToString("0,000");
+                        this.tf_interation.Text = n.ToString("0,000");
                         if (chb_viewResult.IsChecked ?? false)
-                            tfSumme.Text = sum.ToString("0,000");
+                            this.tf_Ergebnis.Text = sum.ToString("0,000");
                         tf_Stellen.Text = sum.ToString().Length.ToString("0,000");
                         tf_Dauer.Text = (DateTime.Now.Subtract(start)).Minutes.ToString("#,##0");
                     });
@@ -116,7 +114,7 @@ namespace NineToNineToNine
 
             this.Dispatcher.Invoke(() =>
             {
-                tfInteration.Text = quotientTop.ToString();
+                tf_interation.Text = quotientTop.ToString();
             });
         }
 
