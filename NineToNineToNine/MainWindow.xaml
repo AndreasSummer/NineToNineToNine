@@ -45,7 +45,7 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock x:Name="tbStart" Text="&#xE73E;" FontFamily="Segoe MDL2 Assets" FontSize="16" />
                 <TextBlock x:Name="tbStop" Text="&#xE738;" FontFamily="Segoe MDL2 Assets" FontSize="16" Visibility="Collapsed" />
-                <TextBlock x:Name="tbStartStop" Text="Start" Margin="5,0,0,0" />
+                <AccessText x:Name="tbStartStop" Text="_Start" Margin="5,0,0,0" />
             </StackPanel>
             <Button.Style>
                 <Style TargetType="Button">
